@@ -5,7 +5,7 @@ namespace CATI9101
     internal class Program
     {
         // atributos
-        public static int x;
+        //public static int x;
         // construtores  -  criam e inicializam instância de classe 
 
         // métodos de acesso (get e set) - C# - Propriedades
@@ -62,8 +62,9 @@ namespace CATI9101
                  }
                  chk = true;
              }
-            */
+           
             // ---------------------------------------------------
+            // maneiras de conversões de tipos
             Console.WriteLine("Digite seu nome:");
             string nome = Console.ReadLine(); 
             Console.WriteLine("Digite o ano de seu nascimento:");
@@ -72,7 +73,52 @@ namespace CATI9101
             string ano = Console.ReadLine(); // classe Convert - funciona
             int idade = DateTime.Now.Year - int.Parse(ano);
             Console.WriteLine("Olá {0}, sua idade é {1} anos",nome,idade);
-            // maneiras de conversões de tipos
+            */
+            bool atende = false;
+            int[] vnumero = new int[10];
+            string sair = string.Empty;
+            int cont = 10;
+            while (sair!="s" && cont > 0)
+            {
+                Console.WriteLine("Digite um número de 1 a 10: ");
+                int numero = int.Parse(Console.ReadLine());
+
+                do
+                {
+                    if (numero > 0 && numero < 11)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            Console.WriteLine($"{numero} x {i+1} = {numero*(i+1)}");
+                            // Console.WriteLine(i+1 +"º - "+numero + " x " + (i+1) + " = " + numero * (i+1));
+                        }
+                        atende = true;
+                    }
+                    else
+                    {
+                        atende = false;
+                        Console.WriteLine("Você deve digitar um valor entre 1 e 10");
+                        numero = int.Parse(Console.ReadLine());
+                    }
+                   
+                } while (!atende);
+                cont--; // decrementa um número na variável contador
+                vnumero[cont] = numero;
+                
+                Console.WriteLine("Deseja sair? (s) ou enter para continuar:");
+                sair = Console.ReadLine();
+                Console.Clear(); // limpa o console 
+            }// fim do While
+            Console.WriteLine();
+            Console.Write("Você exibiu as tabuadas dos números ");
+            foreach (var item in vnumero)
+            {
+                Console.Write($"{item}, ");
+            }
+
+
+
+
             Console.ReadKey(); 
         }
 
