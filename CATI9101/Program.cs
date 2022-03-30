@@ -73,7 +73,7 @@ namespace CATI9101
             string ano = Console.ReadLine(); // classe Convert - funciona
             int idade = DateTime.Now.Year - int.Parse(ano);
             Console.WriteLine("Olá {0}, sua idade é {1} anos",nome,idade);
-            */
+            
             bool atende = false;
             int[] vnumero = new int[10];
             string sair = string.Empty;
@@ -115,7 +115,29 @@ namespace CATI9101
             {
                 Console.Write($"{item}, ");
             }
-
+*/
+            // declaração de matrizes
+            string[] jogadores = { "José", "Paulo", "Gabriel", "Júlio", "Marcos" };
+            //int[,] pontos = { {0,2 }, {1,3 }, {2,5 }, {3,4 } };
+            string[] times = new string[5];
+            int [,] tabela = new int[5,6];
+            /*
+            int[,] m = new int[4, 2];
+            m[0,0] = 0;
+            m[1,0] = 1;
+            m[2,0] = 2;
+            m[3,0] = 3;
+            m[0,1]= 2;
+                     */
+            foreach (string jogador in jogadores)
+            {
+                 Console.WriteLine(jogador);
+            }
+            for (int i = 0; i < jogadores.Length; i++)
+            {
+                Console.WriteLine("Digite o nome do {0}º jogador",(i+1));   
+                jogadores[i] = Console.ReadLine();
+            }
 
 
 
