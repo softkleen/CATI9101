@@ -115,20 +115,21 @@ namespace CATI9101
             {
                 Console.Write($"{item}, ");
             }
-*/
+
             // declaração de matrizes
             string[] jogadores = { "José", "Paulo", "Gabriel", "Júlio", "Marcos" };
             //int[,] pontos = { {0,2 }, {1,3 }, {2,5 }, {3,4 } };
             string[] times = new string[5];
             int [,] tabela = new int[5,6];
-            /*
+            
             int[,] m = new int[4, 2];
             m[0,0] = 0;
             m[1,0] = 1;
             m[2,0] = 2;
+
             m[3,0] = 3;
             m[0,1]= 2;
-                     */
+                    
             foreach (string jogador in jogadores)
             {
                  Console.WriteLine(jogador);
@@ -138,6 +139,56 @@ namespace CATI9101
                 Console.WriteLine("Digite o nome do {0}º jogador",(i+1));   
                 jogadores[i] = Console.ReadLine();
             }
+
+*/
+            //Minipulação de Strings
+            string nome = "  Wellington Vieira dos santos  ";
+            Console.WriteLine(nome + " - " + nome.Length);
+            // retorna o número de caracteres
+            Console.WriteLine(nome.Length);
+            // removendo espaços do começo e do fim (TRIM)
+            nome = nome.Trim(); 
+            Console.WriteLine(nome + " - " + nome.Length);
+            // exibindo os primeiros 4 caracters de nome
+            Console.WriteLine(nome.Substring(0,4));
+            // alterando a variável para manter apenas os primeiros 4 caracters
+            // nome = nome.Substring(0,4);
+
+            Console.WriteLine(nome.Remove(4));// mantém os 4 primeiros
+            //string idade = "17";
+            // Substituindo caracteres
+            Console.WriteLine(nome.Replace(" ","%"));
+            // insere caracteres em uma string
+            Console.WriteLine(nome.Insert(4, "ll"));
+            // retorma a posição da 1ª ocorrencia da string
+            Console.WriteLine(nome.IndexOf("i"));
+
+            Console.WriteLine(nome.ToUpper());
+            Console.WriteLine(nome.ToLower());
+            // divide uma string em um vetor de strings
+            string[] vnome;
+            vnome = nome.Split(' ');
+            for (int i = 0; i < vnome.Length; i++)
+            {
+                Console.WriteLine(vnome[i]);
+            }
+
+            string frase = "socorra-me subi no onibus em marrocos";
+            Console.WriteLine(frase);
+            string fraseinv=string.Empty;
+            for (int i =frase.Length -1; i > -1 ; i--)
+            {
+                fraseinv += frase.Substring(i, 1);
+            }
+            Console.WriteLine(fraseinv);
+
+            // inverter texto convertendo para array
+            char[] textoArray = frase.ToCharArray();
+            Array.Reverse(textoArray);
+            fraseinv = new string(textoArray);
+            Console.WriteLine(fraseinv);
+            Console.WriteLine();
+
 
 
 
