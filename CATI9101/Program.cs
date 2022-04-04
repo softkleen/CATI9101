@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CATI9101
 {
@@ -188,7 +189,7 @@ namespace CATI9101
             Console.WriteLine(fraseinv);
             Console.WriteLine();
 
-*/
+
             // Manipulação de Matrizes
             Console.WriteLine();
             int[] numeros = new int[6];
@@ -217,6 +218,56 @@ namespace CATI9101
                 else
                     Console.Write(numeros[i]);
             }
+            */
+            int p = 3; // número de cartões
+            int j = 6; // quantidade de números por cartão
+            int[,] vs = new int[p,j];
+                
+            Random aleatorio = new Random();
+
+            for (int i = 0; i < p; i++)
+            {
+                for (int x = 0; x < j; x++)
+                {
+                    vs[i, x] = aleatorio.Next(1, 60);
+                }  
+            }// matriz carregada
+
+            // ordenar 
+            for (int l = 0; l < p; l++)
+            {// percorrer pelas linhas da matriz
+                for (int r = 0; r < (j-1); r++)
+                {
+                    for (int c = r+1; c < j; c++)
+                    {
+                        int t;
+                        if (vs[l,r]>=vs[l,c])
+                        {
+                            t = vs[l, r];
+                            vs[l, r] = vs[l, c];
+                            vs[l, c] = t;
+                        }
+                    }
+                }
+            }
+
+            // exibe a matriz 
+            Console.WriteLine();
+            for (int i = 0; i < p; i++)
+            {
+                for (int x = 0; x < j; x++)
+                {
+                    Console.Write(vs[i, x] + "-");
+                }
+                Console.WriteLine();
+            }
+
+            //List<string> list = new List<string>();
+            //Queue<string> queue = new Queue<string>();
+            //Stack<string> stack = new Stack<string>();
+            //list.Add("oi");
+            //Array.BinarySearch(vs, 5);
+
 
             Console.ReadKey(); 
         }
