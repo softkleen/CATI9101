@@ -222,14 +222,20 @@ namespace CATI9101
             int p = 3; // número de cartões
             int j = 6; // quantidade de números por cartão
             int[,] vs = new int[p,j];
-                
-            Random aleatorio = new Random();
-
             for (int i = 0; i < p; i++)
             {
                 for (int x = 0; x < j; x++)
                 {
-                    vs[i, x] = aleatorio.Next(1, 60);
+                    vs[i, x] = Sortear();
+                    if (x>0)
+                    {
+                        while (verifica(vs,i, x, j, vs[i, x]))
+                        {
+                            vs[i, x] = Sortear();
+                        } 
+                    }
+                
+                
                 }  
             }// matriz carregada
 
@@ -261,7 +267,7 @@ namespace CATI9101
                 }
                 Console.WriteLine();
             }
-
+            
             //List<string> list = new List<string>();
             //Queue<string> queue = new Queue<string>();
             //Stack<string> stack = new Stack<string>();
@@ -271,7 +277,24 @@ namespace CATI9101
 
             Console.ReadKey(); 
         }
+        static int Sortear() 
+        {
+            Random random = new Random();
+            return random.Next(1, 60); 
+        }
+        static bool verifica(int[,] a, int linha, int l, int j, int valor ) 
+        {
+            bool teste = true;
+            for (int i = l-1; i < j; i++)
+            {
+                if (a[linha,i]==valor)
+                {
+                    teste = false;
+                }
+            }
+            return teste;
 
+        }
     }
  
 }
